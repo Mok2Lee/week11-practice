@@ -35,7 +35,15 @@ git clone https://github.com/Mok2Lee/week11-practice.git
 
    이 정책으로 지정 버킷의 `incoming/` 목록·객체와 지정 함수의 로그에만 접근할 수 있습니다.
 
-4. **Lambda → Event Functions → Create Event Function → 새로 작성**에서 정책에 넣은 함수 이름과 **Python 3.13**을 선택합니다. 권한 항목의 **기본 실행 역할 변경 → 기존 역할 사용**에서 `week11-drive-role`을 고르고 함수를 생성합니다. 콘솔 화면에 따라 **다른 역할 사용**으로 표시됩니다. **구성 → 권한 → 실행 역할**에서 선택한 역할을 확인하고 **구성 → 일반 구성 → 편집**에서 제한 시간을 **10초**로 저장합니다.
+4. **Lambda 함수 생성 및 실행 역할 연결**
+
+   1. AWS 콘솔에서 실습 리전을 선택한 뒤 **Lambda → Event Functions → Create Event Function → 새로 작성**을 엽니다. **기본 정보**에 3단계의 `FUNCTION_NAME`과 같은 함수 이름을 입력하고 런타임은 **Python 3.13**을 선택합니다.
+   2. 같은 화면에서 아래로 내려 **사용자 지정 설정 → 추가 설정**을 펼치고 **사용자 지정 실행 역할**을 켭니다.
+   3. **역할 생성** 패널에서 **Permissions → Use existing role**을 선택합니다. **Select role → Choose a role** 목록에서 앞서 만든 `week11-drive-role`을 선택하고 패널의 **Save**를 누릅니다.
+   4. 함수 생성 화면 맨 아래의 **Create Event Function**을 누릅니다.
+   5. 함수가 열리면 **구성 → 권한 → 실행 역할**에서 연결한 역할 이름을 확인합니다. **구성 → 일반 구성 → 편집**에서 제한 시간을 **10초**로 설정하고 저장합니다.
+
+   생성 화면에 **권한 → 기본 실행 역할 변경**이 표시되는 경우에는 그 메뉴를 펼쳐 **기존 역할 사용**에서 같은 역할을 고른 뒤 함수를 생성합니다.
 5. `lambda/lambda_function.py`의 `log_upload`에서 `key = ''`와 `size = 0`을 아래 두 줄로 바꿉니다.
 
    ```python
