@@ -1,0 +1,8 @@
+[
+  {
+    "AllowedOrigins": ["CLOUDFRONT_ORIGIN"],
+    "AllowedMethods": ["PUT"],
+    "AllowedHeaders": ["Content-Type", "If-None-Match"],
+    "MaxAgeSeconds": 300
+  }
+]
